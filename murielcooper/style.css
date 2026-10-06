@@ -1,17 +1,115 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif
-  }
-  
-  canvas {
+    background: #eae8e5; /* matches the canvas background */
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+canvas {
     display: block;
     margin: auto;
-    padding: 15px;
-  }
-  
+}
 
-  button {
+/* floating control panel */
+.panel {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 340px;
+    box-sizing: border-box;
+    padding: 14px 16px 16px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(6px);
+    border: 1px solid #999;
+    border-radius: 10px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #222;
+}
+
+.section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 120px 1fr 32px;
+    align-items: center;
+    column-gap: 10px;
+    min-height: 28px;
+}
+
+.label {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.readout {
+    font-size: 12px;
+    text-align: right;
+    color: #222;
+}
+
+.row .wide {
+    grid-column: 2 / 4;
+}
+
+.row select,
+.row input[type="text"] {
+    min-width: 0;
+    padding: 5px 8px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #222;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.row select:focus,
+.row input[type="text"]:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.row input[type="range"] {
+    width: 100%;
+    margin: 0;
+    accent-color: #000;
+}
+
+.row input[type="color"] {
+    width: 44px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button {
     padding: 8px;
     font-size: larger;
-  }
+}
